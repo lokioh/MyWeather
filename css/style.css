@@ -66,6 +66,7 @@ ul li{
     padding: 30px;
     list-style: none
 }
+
 ul li a{
     color: #808080;
     display: block;
@@ -73,9 +74,7 @@ ul li a{
     text-transform: uppercase;
     font-weight: bold
 }
-section{
-    height: 300px;
-}
+
 
 #logoNav {
     width: 100%;
@@ -94,3 +93,13 @@ section{
 }
 
 /* Fin NavBar */
+
+
+/* Début carte */
+
+#mapDiv {
+    width: 600px;
+    height: 400px;
+}
+
+/* Fin carte */

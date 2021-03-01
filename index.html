@@ -6,12 +6,15 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="img/LogoMyWeatherV2.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
     <!-- JS -->
     <script type='text/javascript' src='js/navbar.js'></script>
+    <script type='text/javascript' src='js/map.js'></script>
 </head>
 
 <body>
@@ -33,25 +36,19 @@
             <a href="index.html"><img src="img/LogoMyWeatherV2.png" alt="LogoMyWeather" id="logoNav"></a>
         </div>
         <ul>
-            <li><a href="#">Accueil</a></li>
+            <li><a href="#header">Accueil</a></li>
             <li><a href="#">Carte</a></li>
         </ul>
     </div>
-    <section>
-
-    </section>
-    <section>
-
-    </section>
-    <section>
-
-    </section>
 
     <!-- Fin NavBar -->
 
 
+    <!-- Début contenu de la page-->
 
+    <div id="mapDiv"></div>
 
+    <!-- Fin contenu de la page -->
 
 </body>
 
