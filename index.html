@@ -1,12 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<title>Leaflet IUT Marqueur</title>
+<meta charset="utf-8" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+<script>
+$(document).ready(function(){
+  var map = L.map('maDiv').setView([48.84172, 2.26824],18);
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+var tabCOORD = [
+            [
+               48.84197804895268,2.267719848410252
+            ],
+            [
+               48.84174503359729,2.267988069311741
+            ],
+            [
+               48.841540261632446,2.2689000203768046
+            ],
+            [
+               48.8419427436655,2.2693291738191874
+            ],
+            [
+              48.84254999113797,2.2687820031801493
+            ],
+            [
+			  48.84197804895268,2.267719848410252
+            ]
+          ] ;
+var polygone = L.polygon(tabCOORD, {color: 'red',weight:2,fillColor:'yellow',fillOpacity:0.5}).addTo(map);
+});
+</script>
 </head>
 <body>
-    
+<div id="maDiv" style="width: 600px; height: 400px"></div>
 </body>
 </html>
