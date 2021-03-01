@@ -36,45 +36,66 @@ h1 {
 
 /* Début NavBar */
 
-/* Style the navbar */
-#navbar {
-    overflow: hidden;
-    background-color: rgba(238, 238, 238, 0.95);
-}
-  
-/* Navbar links */
-#navbar a {
-    float: left;
-    display: block;
-    color: black;
+.text{
     text-align: center;
-    padding: 14px;
+    height: 100px;
+    background: #262626;
+    color: #808080;
+}
+.text h2{
+    margin: 0;
+    line-height: 100px;
+    font-size: 48px;
+}
+.nav{
+    background: rgba(238, 238, 238, 0.95);
+    color: #808080;
+    display: flex
+}
+.nav .logo{
+    font-size: 24px;
+    padding: 20px;
+    margin-left: 25px
+}
+.nav .logo a{
+    color: #808080;
+    text-decoration: none
+}
+.nav ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 50%;
+    margin-left: auto
+}
+ul li{
+    padding: 20px;
+    list-style: none
+}
+ul li a{
+    color: #808080;
+    display: block;
     text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold
 }
-  
-/* Page content */
-.content {
-    padding: 16px;
-}
-  
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-  
-/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-    padding-top: 60px;
+section{
+    height: 300px;
 }
 
-#leftNav {
-    float: right;
-    padding-right: 10px;
-    font-family: "proxima-nova", "Helvetica", sans-serif;
-    color: #808080;
-    font-size: 20px;
-    padding-right: 12em;
+#logoNav {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    min-height: 0;
+    min-width: 0;
 }
+
+.sticky{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%
+}
+
 /* Fin NavBar */
