@@ -98,8 +98,9 @@ ul li a{
 /* Début carte */
 
 #mapDiv {
-    width: 600px;
-    height: 400px;
+    padding-top: 150px;
+    width: 100%;
+    height: 700px;
 }
 
 /* Fin carte */
