@@ -1,10 +1,12 @@
 
 window.onscroll = function () {
+
+
     if($(this).scrollTop() > 100){
-        $('.nav').addClass('sticky')
-        $('nav').addClass('logo')
+        $('.nav').addClass('sticky');
+        $('#logoNav').css('visibility', 'visible');
     } else{
-        $('.nav').removeClass('sticky')
-        $('nav').removeClass('logo')
+        $('.nav').removeClass('sticky');
+        $('#logoNav').css('visibility', 'hidden');
     }
 };

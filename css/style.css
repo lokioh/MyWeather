@@ -36,31 +36,24 @@ h1 {
 
 /* Début NavBar */
 
-.text{
-    text-align: center;
-    height: 100px;
-    background: #262626;
-    color: #808080;
-}
-.text h2{
-    margin: 0;
-    line-height: 100px;
-    font-size: 48px;
-}
+
 .nav{
     background: rgba(238, 238, 238, 0.95);
     color: #808080;
     display: flex
 }
+
 .nav .logo{
     font-size: 24px;
     padding: 20px;
     margin-left: 25px
 }
+
 .nav .logo a{
     color: #808080;
     text-decoration: none
 }
+
 .nav ul{
     margin: 0;
     padding: 0;
@@ -68,8 +61,9 @@ h1 {
     width: 50%;
     margin-left: auto
 }
+
 ul li{
-    padding: 20px;
+    padding: 30px;
     list-style: none
 }
 ul li a{
@@ -89,6 +83,7 @@ section{
     height: auto;
     min-height: 0;
     min-width: 0;
+    visibility: hidden;
 }
 
 .sticky{
