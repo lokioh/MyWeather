@@ -1,3 +1,9 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
 /* Début header */
 
 .header {
@@ -46,21 +52,29 @@ h1 {
     text-decoration: none;
 }
   
-  /* Page content */
-  .content {
+/* Page content */
+.content {
     padding: 16px;
-  }
+}
   
-  /* The sticky class is added to the navbar with JS when it reaches its scroll position */
-  .sticky {
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
     position: fixed;
     top: 0;
     width: 100%;
-  }
+}
   
-  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-  .sticky + .content {
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
     padding-top: 60px;
-  }
+}
 
+#leftNav {
+    float: right;
+    padding-right: 10px;
+    font-family: "proxima-nova", "Helvetica", sans-serif;
+    color: #808080;
+    font-size: 20px;
+    padding-right: 12em;
+}
 /* Fin NavBar */
