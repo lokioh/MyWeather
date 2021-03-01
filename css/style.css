@@ -1,0 +1,28 @@
+/* Début bannière */
+
+.header {
+    padding: 60px;
+    background: white;
+    color: #333333;
+    font-family: stratum-2-web, sans-serif;
+    display: flex;
+    margin: 3px;
+}
+
+#logo {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    min-height: 0;
+    min-width: 0;
+    flex: 4;
+}
+
+h1 {
+    flex: 12;
+    width: 100%;
+    height: auto;
+    font-size: 5vw;
+}
+
+/* Fin bannière */
