@@ -12,74 +12,49 @@ $(document).ready(function () {
             }
             
             marker = new L.Marker(e.latlng).addTo(map);
-            console.log(marker._latlng);
-            coord(marker._latlng.lat, marker._latlng.lng);
+            var lat = marker._latlng.lat;
+            var lng = marker._latlng.lng;
+            var county = getCounty(lat, lng);
+            getWeatherByCounty(county);
+
         });
 
 
-        
 
+    function getCounty(lat, lng) {
 
-    // function city() {
-
-    //     $.ajax({
-
-    //         type: "GET",
-    //         url: "https://nominatim.openstreetmap.org/reverse",
-    //         data: "format=jsonv2&lat=" + marker._latlng.lat + "&lon=" + marker._latlng.lng,
-    //         success: function (resultat) {
-    //             var r = resultat.address;
-    //             var popUp = L.popup();
-    //             popUp.setLatLng([marker._latlng.lat, marker._latlng.lng]).setContent(r).openOn(map);
-    //         },
-
-    //         error: function (reponse, statut, erreur) { // callback, fonction appelée lorsque la requête échoue 
-    //             $("#mapDIV").html("<span id=\"reponse\">Erreur ===> </span>" + statut);
-    //         },
-
-    //         complete: function (resultat, statut) {
-    //             // A faire après un succès OU un échec (donc tous les cas de figure...)
-    //         }
-
-    //     });
-
-    // }
-
-
-
-    function coord(lat, lng) {
+        var addr = null;
 
         $.ajax({
-
+            async: false,
             type: "GET",
             url: "https://nominatim.openstreetmap.org/reverse",
+            timeout: 5000,
             data: "format=geojson&lat=" + lat + "&lon=" + lng,
             success: function (resultat) {
-
-                var addr = resultat["features"][0]["properties"]["address"];
-
-                console.log(addr.state);
-
+                addr = resultat["features"][0]["properties"]["address"]["county"];
             },
 
             error: function(reponse, statut, erreur) {
-
                 console.log(erreur);
-
             }
         });
-        
+
+        return addr;
     }
 
 
+    function getWeatherByCounty(county) {
 
-
-
-
-
-
-
-
-
+        $.ajax({
+            type: "GET",
+            url: "http://api.openweathermap.org/data/2.5/weather",
+            data: "q=" + county + "&units=metric&appid=c050caf77cdabd9e85503f36538e43b9",
+            dataType: "json",
+            success: function (response) {
+                console.log(response["main"]["temp"]);
+            }
+        });
+    }
 
 });
