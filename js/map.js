@@ -15,8 +15,6 @@ $(document).ready(function () {
             var lat = marker._latlng.lat;
             var lng = marker._latlng.lng;
             var county = getCounty(lat, lng);
-            getWeatherByCounty(county);
-
         });
 
 
@@ -46,15 +44,25 @@ $(document).ready(function () {
 
     function getWeatherByCounty(county) {
 
+        var temp = null;
+
         $.ajax({
+            async: false,
             type: "GET",
+            timeout: 5000,
             url: "http://api.openweathermap.org/data/2.5/weather",
             data: "q=" + county + "&units=metric&appid=c050caf77cdabd9e85503f36538e43b9",
             dataType: "json",
             success: function (response) {
-                console.log(response["main"]["temp"]);
+                temp = response["main"]["temp"];
+            },
+
+            error: function(resultat, statut, erreur) {
+                console.log(erreur);
             }
         });
+
+        return temp;
     }
 
 });
