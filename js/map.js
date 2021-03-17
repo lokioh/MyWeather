@@ -22,14 +22,14 @@ $(document).ready(function () {
             marker.bindPopup("<b>ERREUR</b><br>Vous avez choisi un mauvais endroit !").openPopup();
         } else {
             if (!getTempZip(loc)) {
-                //change de fonction si l'endroit choisit ne renvoie pas les bons paramètre en JSON
+                //change de fonction si l'endroit choisit ne renvoie pas les bons paramètres en JSON
                 if (loc["state"] == null) {
                     //change de fonction dans le cas si state est vide pour éviter que OpenWeatherMap renvoie la température d'un endroit avec un state vide
                     getTempCountry(loc);
                     console.log("ERREUR : State n'est pas défini.")
                 } else {
                     if (!getTemp(loc)) {
-                        //change de fonction si l'endroit choisit ne renvoie pas les bons paramètre en JSON
+                        //change de fonction si l'endroit choisit ne renvoie pas les bons paramètres en JSON
                         getTempCountry(loc);
                     }
                 }
