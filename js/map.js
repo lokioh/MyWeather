@@ -1,7 +1,11 @@
 $(document).ready(function () {
 
-    var map = L.map('mapDiv').setView([46.7111, 1.7191], 6);
+    var map = L.map('mapDiv', {
+        minZoom: 5
+    })
+    map.setView([46.7111, 1.7191], 6);
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+
 
     var marker;
 

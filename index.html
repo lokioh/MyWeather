@@ -8,51 +8,75 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
     <!-- JS -->
-    <script type='text/javascript' src='js/navbar.js'></script>
     <script type='text/javascript' src='js/map.js'></script>
 </head>
 
 <body>
 
-    <!-- Début header -->
+    <!-- Début Navbar  -->
 
-    <div class="header" id="header">
-        <img src="img/LogoMyWeatherV2.png" alt="LogoMyWeather" id="logo">
-        <h1>MyWeather</h1>
-    </div>
-
-    <!-- Fin header -->
-
-
-    <!-- Début NavBar-->
-
-    <div class="nav">
-        <div class="logo">
-            <a href="index.html"><img src="img/LogoMyWeatherV2.png" alt="LogoMyWeather" id="logoNav"></a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="./img/LogoMyWeatherV2.png" alt="logo" style="width: 60px;"></a>
+            <a class="navbar-brand" href="#cover">MyWeather</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#cover">Accueil<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#mapDiv">Carte</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <ul>
-            <li><a href="#header">Accueil</a></li>
-            <li><a href="#">Carte</a></li>
-        </ul>
-    </div>
+    </nav>
 
     <!-- Fin NavBar -->
 
 
     <!-- Début contenu de la page-->
 
-    <div id="mapDiv"></div>
+    <div class="contain">
+        <div class="cover" id="cover">
+            <img class="logo" alt="logo" src="./img/LogoMyWeatherV2.png">
+            <h1 class="title"><a href="#cover">MyWeather</a></h1>
+            <p class="font-italic">
+                Bienvenue sur MyWeather !<br>
+                Vous voulez sortir de chez vous car vous en avez marre de ce confinement ? <br>
+                Mais ça fait tellement longtemps que vous n'êtes pas sorti de chez vous que vous ne savez pas si vous
+                devez
+                prendre un manteau ou un short ? <br>
+                Pas de problèmes avec MyWeather, un clique sur notre carte et votre problème sera réglé en un clin
+                d'oeil !
+            </p>
+        </div>
+
+        <div class="center-item">
+            <h2 class="subTitle">Utilisez notre merveilleuse carte !</h2>
+            <button class="button"><span><a href="#mapDiv">Je veux ma météo !</a></span></button>
+
+        </div>
+
+        <div class="carte">
+            <h3 class="titleMap">MyWeather</h3>
+            <div id="mapDiv"></div><br>
+        </div>
+    </div>
 
     <!-- Fin contenu de la page -->
-
-    <div id="id"></div>
 
 </body>
 

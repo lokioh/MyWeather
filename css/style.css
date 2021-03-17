@@ -4,103 +4,142 @@ html, body {
     border: 0;
 }
 
-/* Début header */
+/* Début contenu page */
 
-.header {
-    padding: 60px;
-    background: white;
-    color: #333333;
-    font-family: stratum-2-web, sans-serif;
-    display: flex;
-    margin: 3px;
+.cover {
+    background-image: url(../img/photo-1519692933481-e162a57d6721.jfif);
+    background-size: cover;
+    background-position: center;
+	text-align: center;
 }
 
-#logo {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    min-height: 0;
-    min-width: 0;
-    flex: 4;
-}
-
-h1 {
-    flex: 12;
-    width: 100%;
-    height: auto;
-    font-size: 5vw;
-}
-
-/* Fin header */
-
-
-/* Début NavBar */
-
-
-.nav{
-    background: rgba(238, 238, 238, 0.95);
-    color: #808080;
-    display: flex
-}
-
-.nav .logo{
-    font-size: 24px;
-    padding: 20px;
-    margin-left: 25px
-}
-
-.nav .logo a{
-    color: #808080;
-    text-decoration: none
-}
-
-.nav ul{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    width: 50%;
-    margin-left: auto
-}
-
-ul li{
-    padding: 30px;
-    list-style: none
-}
-
-ul li a{
-    color: #808080;
-    display: block;
+.title a {
+	margin-top: 0;
+	font-size: 50px;
+	color: white;
+    padding-bottom: 1em;
+    text-transform: none;
     text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold
 }
 
-
-#logoNav {
-    width: 100%;
-    max-width: 100px;
-    height: auto;
-    min-height: 0;
-    min-width: 0;
-    visibility: hidden;
+.title a:hover {
+    color: gray;
 }
 
-.sticky{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%
+.logo {
+    width: 400px;
+    padding-top: 2em;
 }
 
-/* Fin NavBar */
+.font-italic {
+    font-family: "Raleway", sans-serif;
+	font-size: 25px;
+	font-weight: 300;
+	margin: 1.5em 3em 1em 3em;
+	padding-top: 1.5em;
+    padding-bottom: 8.5em;
+	color: white;
+	line-height: 36px;
+	letter-spacing: 1px;
+}
 
+.center-item{
+	text-align: center;
+}
+
+.subTitle {
+    padding-top: 1.5em;
+    padding-bottom: 2em;
+}
+
+/* Début boutton */
+
+.button{
+	border-radius: 100px;
+	background-color: transparent;
+	border: 2px solid #5D949E;
+	color: #5D949E;
+	font-size: 16px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	line-height: 1.7em;
+	padding: 4px 50px 4px 50px;
+	margin-bottom: 56px;
+}
+  
+.button a{
+	text-decoration: none;
+	color: #5D949E;
+	font-weight: 600;
+	font-family: "Raleway", sans-serif;
+}
+  
+.button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.3s;
+}
+  
+.button span:after {
+	content: '\2BC8';
+	font-size: 10px;
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.3s;
+}
+  
+.button:hover span {
+	padding-right: 25px;
+}
+  
+.button:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+
+/* Fin boutton */
 
 /* Début carte */
 
+.carte {
+    background-image: url(../img/téléchargement.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.titleMap {
+    padding-top: 3em;
+    padding-bottom: 1.5em;
+    text-align: center;
+    color: #5D949E;
+    font-weight: bold;
+    font-size: 50px;
+}
+
 #mapDiv {
-    padding-top: 150px;
-    width: 100%;
+    padding-top: 15em;
+    padding-bottom: 2em;
+    width: 1400px;
     height: 700px;
+    margin-bottom: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid #5D949E;
+}
+
+@media only screen and (max-width: 1280px) {
+    
+    #mapDiv {
+        width: 100%;
+    }
 }
 
 /* Fin carte */
+
+/* Fin contenu de la page */
+
