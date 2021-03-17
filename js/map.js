@@ -4,7 +4,6 @@ $(document).ready(function () {
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
 
     var marker;
-    var popup = L.popup();
 
     map.on('click', function (e) {
         if (marker) {
@@ -18,15 +17,19 @@ $(document).ready(function () {
         var loc = getAddr(lat, lng)
 
         if (!loc) {
+            // si l'utilisateur choisi un endroit sur la carte qui ne renvoie pas de data en JSON par Nominatim on renvoie une erreure
             console.log('ERREUR : Mauvais choix.');
             marker.bindPopup("<b>ERREUR</b><br>Vous avez choisi un mauvais endroit !").openPopup();
         } else {
             if (!getTempZip(loc)) {
+                //change de fonction si l'endroit choisit ne renvoie pas les bons paramètre en JSON
                 if (loc["state"] == null) {
+                    //change de fonction dans le cas si state est vide pour éviter que OpenWeatherMap renvoie la température d'un endroit avec un state vide
                     getTempCountry(loc);
                     console.log("ERREUR : State n'est pas défini.")
                 } else {
                     if (!getTemp(loc)) {
+                        //change de fonction si l'endroit choisit ne renvoie pas les bons paramètre en JSON
                         getTempCountry(loc);
                     }
                 }
@@ -37,7 +40,7 @@ $(document).ready(function () {
     });
 
 
-
+    //fonction qui récupère l'adresse en JSON par rapport l'endroit cliqué sur la carte grâce à l'API Nominatim
     function getAddr(lat, lng) {
 
         var addr = null;
@@ -56,14 +59,13 @@ $(document).ready(function () {
 
             error: function (reponse, statut, erreur) {
                 console.log(erreur);
-
             }
         });
 
         return addr;
     }
 
-
+    //fonction qui récupére la température via l'API OpenWeatherMap grâce aux paramètres : state & countryCode
     function getTemp(loc) {
 
         var temp = null;
@@ -92,6 +94,7 @@ $(document).ready(function () {
         return temp;
     }
 
+    //fonction qui récupére la température via l'API OpenWeatherMap grâce aux paramètres : postcode & countryCode
     function getTempZip(loc) {
 
         var temp = null;
@@ -119,6 +122,7 @@ $(document).ready(function () {
         return temp;
     }
 
+    //fonction qui récupére la température via l'API OpenWeatherMap grâce au paramètre : country
     function getTempCountry(loc) {
 
         var temp = null;
