@@ -93,7 +93,13 @@ $(document).ready(function () {
     function getTemp(loc) {
 
         var temp = null;
-        var state = loc["state"];
+        var state = loc["city"];
+        if (state == null) {
+            state = loc["county"];
+            if (state == null) {
+                state = loc["state"];
+            }
+        }
         var countryCode = loc["country_code"];
 
         $.ajax({
@@ -108,6 +114,7 @@ $(document).ready(function () {
                 temp = response["main"]["temp"];
                 description = response['weather'][0]['description'];
                 nameByAPI = response['name'];
+                console.log(response);
 
                 marker.bindPopup("<b>MyWeather</b><br>" + loc["country"] + ", " + nameByAPI + " : " + temp + "°C, " + description).openPopup();
 
