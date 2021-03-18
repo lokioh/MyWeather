@@ -3,7 +3,7 @@ $(document).ready(function () {
     var myWeatherMap = L.map("mapDiv").setView([46.7111, 1.7191], 6);
 
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        minZoom: 5,
+        minZoom: 4,
     }).addTo(myWeatherMap);
 
     var marker;
