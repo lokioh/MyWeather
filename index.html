@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -25,7 +28,8 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="./img/LogoMyWeatherV2.png" alt="logo" style="width: 60px;"></a>
+            <a class="navbar-brand" href="#cover"><img src="./img/LogoMyWeatherV2.png" alt="logo"
+                    style="width: 60px;"></a>
             <a class="navbar-brand" href="#cover">MyWeather</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,8 +69,13 @@
         </div>
 
         <div class="center-item">
-            <h2 class="subTitle">Utilisez notre merveilleuse carte !</h2>
-            <button class="button"><span><a href="#mapDiv">Je veux ma météo !</a></span></button>
+            <h2 class="subTitle">Vous souhaitez partir en voyage ?</h2>
+            <p class="font-italic two">
+                Partir de Paris vers Londres ?!<br>
+                Notre carte propose aussi un gps intégré ! Essayez donc !<br>
+                Déplacez les petits sur la cartes et en voiture !
+            </p>
+            <button class="button" id="routingButton"><span><a href="#mapDiv">Je veux mon itinéraire gps !</a></span></button>
 
         </div>
 

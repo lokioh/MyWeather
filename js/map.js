@@ -1,20 +1,20 @@
 $(document).ready(function () {
 
-    var map = L.map('mapDiv', {
-        minZoom: 5
-    })
-    map.setView([46.7111, 1.7191], 6);
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+    var myWeatherMap = L.map("mapDiv").setView([46.7111, 1.7191], 6);
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        minZoom: 5,
+    }).addTo(myWeatherMap);
 
 
     var marker;
 
-    map.on('click', function (e) {
+    myWeatherMap.on('click', function (e) {
         if (marker) {
-            map.removeLayer(marker);
+            myWeatherMap.removeLayer(marker);
         }
 
-        marker = new L.Marker(e.latlng).addTo(map);
+        marker = new L.Marker(e.latlng).addTo(myWeatherMap);
         var lat = marker._latlng.lat;
         var lng = marker._latlng.lng;
 
@@ -54,11 +54,11 @@ $(document).ready(function () {
             type: "GET",
             url: "https://nominatim.openstreetmap.org/reverse",
             timeout: 5000,
-            data: "format=geojson&lat=" + lat + "&lon=" + lng,
+            data: "zoom=10&lang=fr&format=geojson&lat=" + lat + "&lon=" + lng,
             success: function (resultat) {
                 addr = resultat["features"][0]["properties"]["address"];
-                console.log("RESULTAT : Requête AJAX réussie (Nominatim).");
-                console.log(addr);
+                console.log("RESULTAT : Requête AJAX réussie (Nominatim/getAddr).");
+                console.log(resultat);
             },
 
             error: function (reponse, statut, erreur) {
@@ -81,12 +81,15 @@ $(document).ready(function () {
             type: "GET",
             timeout: 5000,
             url: "http://api.openweathermap.org/data/2.5/weather",
-            data: "q=" + state + ", " + countryCode + "&units=metric&appid=c050caf77cdabd9e85503f36538e43b9",
+            data: "q=" + state + ", " + countryCode + "&units=metric&lang=fr&appid=c050caf77cdabd9e85503f36538e43b9",
             dataType: "json",
             success: function (response) {
                 console.log("RESULTAT : Requête AJAX réussie (OpenWeatherMap/getTemp).");
                 temp = response["main"]["temp"];
-                marker.bindPopup("<b>MyWeather</b><br>" + loc["country"] + ", " + state + " : " + temp + "°C").openPopup();
+                description = response['weather'][0]['description'];
+                nameByAPI = response['name'];
+
+                marker.bindPopup("<b>MyWeather</b><br>" + loc["country"] + ", " + nameByAPI + " : " + temp + "°C, " + description).openPopup();
 
             },
 
@@ -110,12 +113,15 @@ $(document).ready(function () {
             type: "GET",
             timeout: 5000,
             url: "http://api.openweathermap.org/data/2.5/weather",
-            data: "zip=" + postcode + "," + countryCode + "&units=metric&appid=c050caf77cdabd9e85503f36538e43b9",
+            data: "zip=" + postcode + "," + countryCode + "&units=metric&lang=fr&appid=c050caf77cdabd9e85503f36538e43b9",
             dataType: "json",
             success: function (response) {
                 console.log("RESULTAT : Requête AJAX réussie (OpenWeatherMap/getTempZip).");
                 temp = response["main"]["temp"];
-                marker.bindPopup("<b>MyWeather</b><br>" + loc["country"] + ", " + loc["county"] + " : " + temp + "°C").openPopup();
+                description = response['weather'][0]['description'];
+                nameByAPI = response['name'];
+
+                marker.bindPopup("<b>MyWeather</b><br>" + loc["country"] + ", " + nameByAPI + " : " + temp + "°C, " + description).openPopup();
             },
 
             error: function (resultat, statut, erreur) {
@@ -137,12 +143,15 @@ $(document).ready(function () {
             type: "GET",
             timeout: 5000,
             url: "http://api.openweathermap.org/data/2.5/weather",
-            data: "q=" + country + "&units=metric&appid=c050caf77cdabd9e85503f36538e43b9",
+            data: "q=" + country + "&units=metric&lang=fr&appid=c050caf77cdabd9e85503f36538e43b9",
             dataType: "json",
             success: function (response) {
                 console.log("RESULTAT : Requête AJAX réussie (OpenWeatherMap/getCountry).");
                 temp = response["main"]["temp"];
-                marker.bindPopup("<b>MyWeather</b><br>" + loc["country"] + " : " + temp + "°C").openPopup();
+                description = response['weather'][0]['description'];
+                nameByAPI = response['name'];
+
+                marker.bindPopup("<b>MyWeather</b><br>" + loc["country"] + ", " + nameByAPI + " : " + temp + "°C, " + description).openPopup();
             },
 
             error: function (resultat, statut, erreur) {
@@ -154,5 +163,25 @@ $(document).ready(function () {
 
         return temp;
     }
+
+
+    $("#routingButton").click(function () {
+
+        L.Routing.control({
+            serviceURL: 'http://my-osrm/route/v1',
+            waypoints: [
+                L.latLng(48.866667, 2.333333),
+                L.latLng(51.509865, -0.118092)
+            ]
+        }).addTo(myWeatherMap);
+
+        $("#routingButton").html('<span><a href="#mapDiv">Je vais rester chez moi au final...</a></span>');
+
+        $("#routingButton").click(function() {
+            location.reload();
+        })
+    });
+
+
 
 });

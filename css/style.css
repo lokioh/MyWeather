@@ -7,7 +7,7 @@ html, body {
 /* Début contenu page */
 
 .cover {
-    background-image: url(../img/photo-1519692933481-e162a57d6721.jfif);
+    background-image: url(../img/photo-1519692933481-e162a57d6721.jpg);
     background-size: cover;
     background-position: center;
 	text-align: center;
@@ -43,13 +43,20 @@ html, body {
 	letter-spacing: 1px;
 }
 
+.two {
+    font-family: "Raleway", sans-serif;
+	font-size: 25px;
+	padding-top: 2px;
+    padding-bottom: 1em;
+	color: black;
+}
+
 .center-item{
 	text-align: center;
 }
 
 .subTitle {
     padding-top: 1.5em;
-    padding-bottom: 2em;
 }
 
 /* Début boutton */
@@ -132,6 +139,7 @@ html, body {
     border: 3px solid #5D949E;
 }
 
+
 @media only screen and (max-width: 1280px) {
     
     #mapDiv {
@@ -140,6 +148,7 @@ html, body {
 }
 
 /* Fin carte */
+
 
 /* Fin contenu de la page */
 
