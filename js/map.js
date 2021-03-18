@@ -6,9 +6,9 @@ $(document).ready(function () {
         minZoom: 5,
     }).addTo(myWeatherMap);
 
-
     var marker;
 
+    // Méthode avec event click pour la carte
     myWeatherMap.on('click', function (e) {
         if (marker) {
             myWeatherMap.removeLayer(marker);
@@ -42,6 +42,26 @@ $(document).ready(function () {
 
 
     });
+
+
+    // Méthode avec event click pour les routes
+    $("#routingButton").click(function () {
+
+        L.Routing.control({
+            serviceURL: 'http://my-osrm/route/v1',
+            waypoints: [
+                L.latLng(48.866667, 2.333333),
+                L.latLng(51.509865, -0.118092)
+            ]
+        }).addTo(myWeatherMap);
+
+        $("#routingButton").html('<span><a href="#mapDiv">Je vais rester chez moi au final...</a></span>');
+
+        $("#routingButton").click(function () {
+            location.reload();
+        })
+    });
+
 
 
     //fonction qui récupère l'adresse en JSON par rapport l'endroit cliqué sur la carte grâce à l'API Nominatim
@@ -163,25 +183,5 @@ $(document).ready(function () {
 
         return temp;
     }
-
-
-    $("#routingButton").click(function () {
-
-        L.Routing.control({
-            serviceURL: 'http://my-osrm/route/v1',
-            waypoints: [
-                L.latLng(48.866667, 2.333333),
-                L.latLng(51.509865, -0.118092)
-            ]
-        }).addTo(myWeatherMap);
-
-        $("#routingButton").html('<span><a href="#mapDiv">Je vais rester chez moi au final...</a></span>');
-
-        $("#routingButton").click(function() {
-            location.reload();
-        })
-    });
-
-
 
 });
