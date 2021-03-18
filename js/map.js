@@ -55,7 +55,7 @@ $(document).ready(function () {
             ]
         }).addTo(myWeatherMap);
 
-        $("#routingButton").html('<span><a href="#mapDiv">Je vais rester chez moi au final...</a></span>');
+        $("#routingButton").html('<span><a>Je vais rester chez moi au final...</a></span>');
 
         $("#routingButton").click(function () {
             location.reload();
