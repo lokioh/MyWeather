@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="img/LogoMyWeatherV2.png" alt="Logo" width="100" height="100">
+    <img src="img/LogoMyWeatherV2.png" alt="Logo" width="150" height="100">
   </a>
 
   <h3 align="center">MyWeather</h3>
