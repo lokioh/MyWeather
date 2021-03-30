@@ -32,6 +32,6 @@ Ou par email:
  
 
 <!-- LICENSE -->
-## License
+## Licence
 
 Distributed under the MIT License. See `LICENSE` for more information.
