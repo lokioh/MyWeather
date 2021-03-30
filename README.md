@@ -22,9 +22,6 @@
 Vous pouvez nous contacter sur discord :
   - Loki#8679
 
-Ou par email:
-  - loiclim.etu@gmail.com
-
 <!-- GETTING STARTED -->
 ## Pour lancer le projet :
 
