@@ -31,4 +31,4 @@ Vous pouvez nous contacter sur discord :
 <!-- LICENSE -->
 ## Licence
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MyWeather License. See `LICENSE` for more information.
